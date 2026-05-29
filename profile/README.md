@@ -10,10 +10,10 @@
 
 ## Current status
 
-- Public release channel: [Release Preview `v0.1.1-preview`](https://github.com/chunkdb/chunkdb/releases/tag/v0.1.1-preview)
-- Evaluation and integration testing: supported
-- Stable release status: no stable release has been published yet
-- Windows Native TLS: not yet guaranteed as fully supported
+- Public release channel: **Stable** [`v1.0.0`](https://github.com/chunkdb/chunkdb/releases/tag/v1.0.0)
+- Compatibility & versioning policy: [COMPATIBILITY.md](https://github.com/chunkdb/chunkdb/blob/main/docs/COMPATIBILITY.md)
+- Supported (stable): Linux native, macOS native, Windows native non-TLS
+- Out of stable claims: experimental `fs_region_v1` backend, Windows Native TLS
 
 ## Repositories
 
@@ -41,7 +41,6 @@
 
 ## Current limitations
 
-- The public release channel is preview, not stable.
 - Windows Native TLS is not yet guaranteed and is not part of stable support claims yet.
 - `chunkdb` does not provide multi-chunk transactions and is not a full ACID DBMS.
 
