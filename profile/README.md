@@ -18,7 +18,7 @@
 ## Repositories
 
 - [chunkdb](https://github.com/chunkdb/chunkdb): C++ storage engine, TCP server, durability docs, tests, and benchmarks.
-- [chunk-cli](https://github.com/chunkdb/chunk-cli): Go CLI for `ping`, `info`, `auth`, `get`, `set`, `chunk`, `chunkbin`, and interactive shell use.
+- [chunk-cli](https://github.com/chunkdb/chunk-cli): Go CLI (v1.0.0) for the chunk protocol — point ops, batch `mset`/`mget`, `chunk`/`chunkbin`, and an interactive shell.
 - [chunkdb-js](https://github.com/chunkdb/chunkdb-js): Official Node.js/TypeScript client (`@chunkdb/client`) with `chunk://`/`chunks://` (TLS), connection pooling, and pipelining.
 
 ## Quick entry points
