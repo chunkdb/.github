@@ -5,7 +5,6 @@ This file applies to every repository in the organization.
 
 If a repository has its own `CONTRIBUTING.md`, read it too.
 Its rules for building, testing, and commit messages take precedence for that repository.
-Today `chunkdb` and `chunkdb-js` have one.
 
 ## Repositories
 
