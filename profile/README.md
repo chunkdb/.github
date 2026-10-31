@@ -1,57 +1,21 @@
 # chunkdb
 
-`chunkdb` is a specialized chunk/grid storage engine for games and grid-based simulations, with bit-packed block storage and a chunk-native protocol.
+chunkdb 2.0 stores grid data in tables of chunks of typed blocks.
+CQL reads and writes blocks, transfers chunks and streams committed changes over TCP or TLS.
+Users control access per table; transactions commit several chunks of one table together, and backup copies a running server for offline restore.
 
-## Why it exists
+## Start
 
-- Store world and grid state in configurable chunk hierarchies instead of forcing it into a row-oriented model.
-- Expose a chunk-native protocol for point reads, point writes, and full-chunk transfer.
-- Provide explicit WAL/checkpoint durability modes with documented guarantees and limitations.
-
-## Current status
-
-- Public release channel: **Stable** [`v1.0.0`](https://github.com/chunkdb/chunkdb/releases/tag/v1.0.0)
-- Compatibility & versioning policy: [COMPATIBILITY.md](https://github.com/chunkdb/chunkdb/blob/main/docs/COMPATIBILITY.md)
-- Supported (stable): Linux native, macOS native, Windows native non-TLS
-- Out of stable claims: experimental `fs_region_v1` backend, Windows Native TLS
+Follow the [quick start](https://github.com/chunkdb/chunkdb/blob/main/docs/QUICK_START.md) to run the server, write blocks and watch an update.
 
 ## Repositories
 
-- [chunkdb](https://github.com/chunkdb/chunkdb): C++ storage engine, TCP server, durability docs, tests, and benchmarks.
-- [chunk-cli](https://github.com/chunkdb/chunk-cli): Go CLI (v1.0.0) for the chunk protocol — point ops, batch `mset`/`mget`, `chunk`/`chunkbin`, and an interactive shell.
-- [chunkdb-js](https://github.com/chunkdb/chunkdb-js): Official Node.js/TypeScript client (`@chunkdb/client`) with `chunk://`/`chunks://` (TLS), connection pooling, and pipelining.
+- [chunkdb](https://github.com/chunkdb/chunkdb): C++ storage engine, server, verifier and restore tools.
+- [chunkdb-go](https://github.com/chunkdb/chunkdb-go): Go client for typed data, transactions and streams.
+- [chunkdb-js](https://github.com/chunkdb/chunkdb-js): Node.js/TypeScript client published as `@chunkdb/client`.
+- [chunk-cli](https://github.com/chunkdb/chunk-cli): Command-line and interactive CQL client.
 
-## Quick entry points
+## Documentation and issues
 
-- [Open the `chunkdb` repository](https://github.com/chunkdb/chunkdb)
-- [Open the `chunk-cli` repository](https://github.com/chunkdb/chunk-cli)
-- [Open the `chunkdb-js` repository](https://github.com/chunkdb/chunkdb-js)
-- [Open the current preview release](https://github.com/chunkdb/chunkdb/releases/tag/v0.1.1-preview)
-- [Read the main `chunkdb` README](https://github.com/chunkdb/chunkdb#readme)
-- [Read the protocol documentation](https://github.com/chunkdb/chunkdb/blob/main/docs/PROTOCOL.md)
-- [Read the release policy](https://github.com/chunkdb/chunkdb/blob/main/docs/RELEASE_POLICY.md)
-- [Read the artifact verification guide](https://github.com/chunkdb/chunkdb/blob/main/docs/VERIFY_RELEASE.md)
-
-## Start here
-
-- Want to run the server: start with the [`chunkdb` README quick start](https://github.com/chunkdb/chunkdb#protocol-startup-and-connection-examples).
-- Want CLI interaction: start with [`chunk-cli`](https://github.com/chunkdb/chunk-cli#quick-start) and then use [`chunk-cli shell`](https://github.com/chunkdb/chunk-cli#interactive-shell).
-- Want to integrate from Node.js/TypeScript: use [`chunkdb-js`](https://github.com/chunkdb/chunkdb-js#readme) (`@chunkdb/client`).
-- Want to inspect release artifacts: open the [preview release](https://github.com/chunkdb/chunkdb/releases/tag/v0.1.1-preview) and verify downloads with [VERIFY_RELEASE.md](https://github.com/chunkdb/chunkdb/blob/main/docs/VERIFY_RELEASE.md).
-
-## Current limitations
-
-- Windows Native TLS is not yet guaranteed and is not part of stable support claims yet.
-- `chunkdb` does not provide multi-chunk transactions and is not a full ACID DBMS.
-
-## Roadmap direction
-
-- The next focus is SDK/client adoption and real consumer validation.
-- Ongoing work will keep prioritizing durability proof, platform validation, and benchmark transparency over scope expansion.
-
-## Contribute or report issues
-
-- [Open an issue in `chunkdb`](https://github.com/chunkdb/chunkdb/issues)
-- [Open an issue in `chunk-cli`](https://github.com/chunkdb/chunk-cli/issues)
-- [Open an issue in `chunkdb-js`](https://github.com/chunkdb/chunkdb-js/issues)
-- [Read the `chunkdb` issue policy](https://github.com/chunkdb/chunkdb/blob/main/docs/ISSUE_POLICY.md)
+Read [CQL](https://github.com/chunkdb/chunkdb/blob/main/docs/CQL.md), [protocol](https://github.com/chunkdb/chunkdb/blob/main/docs/PROTOCOL.md), [durability](https://github.com/chunkdb/chunkdb/blob/main/docs/DURABILITY_CONTRACT.md), [compatibility](https://github.com/chunkdb/chunkdb/blob/main/docs/COMPATIBILITY.md) and [known limitations](https://github.com/chunkdb/chunkdb/blob/main/docs/KNOWN_LIMITATIONS.md).
+Report reproducible server problems in [chunkdb issues](https://github.com/chunkdb/chunkdb/issues), and client problems in the corresponding repository's issue tracker.
